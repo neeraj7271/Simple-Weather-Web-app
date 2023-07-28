@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <main>
+        <h1>Get your weather data</h1>
+        <div class="box">
+            <div class="form-container">
+                <form action="/get" method="post">
+                    <input type="text" name="city" placeholder="Enter the city">
+                    <input type="text" name="country" placeholder="Enter the country">
+                    <button type="submit">Get</button>
+                </form>
+            </div>
+        </div>
+
+        <% if (locals.image && locals.temperature && locals. city && locals.description) { %>
+            <div class="content-box">
+            
+                <div class="image-container">
+                    <img src="<%= image %>" alt="">
+                </div>
+    
+                <div class="description">
+                   <p> temperature: <%= temperature %>&deg;C</p>
+                   <p> city: <%= city %> </p>
+                   <p> Weather type:  <%= description %> </p>
+                </div>
+                
+            </div>
+        <% } else {%>
+                <% if (locals.error) { %>
+                 <%= error %>
+                <% } %>
+            <% } %>
+
+           
+                <!-- <div class="content-box">
+                
+                    <div class="image-container">
+                         image 
+                    </div>
+        
+                    <div class="description">
+                       <p> temperature </p>
+                       <p>  city</p>
+                       <p> description </p>
+                    </div>
+                    
+                </div> -->
+             
+                    
+    
+
+       
+    </main>
+</body>
+</html>
